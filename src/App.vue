@@ -1,10 +1,12 @@
 <template>
-  <Navbar/>
+<!--  <AlertShow/>-->
+  <div class="container">
+    <Navbar/>
 
-  <v-container>
-    <router-view/>
-  </v-container>
-
+    <div class="container d-flex flex-column">
+      <router-view/>
+    </div>
+  </div>
   <Footer/>
 </template>
 
@@ -12,6 +14,8 @@
 // import AlertShow from "@/components/AlertShow";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+// import AlertShow from "@/components/AlertShow"
+
 
 export default {
   setup() {
@@ -25,6 +29,7 @@ export default {
     // AlertShow,
     Navbar,
     Footer,
+    // AlertShow,
   }
 }
 </script>

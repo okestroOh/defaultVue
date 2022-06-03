@@ -1,55 +1,58 @@
 <template>
-  <v-app dark>
-    <AlertShow/>
-    <v-navigation-drawer
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
 
-        v-model="drawer"
-        :mini-variant="miniVariant"
-        :clipped="clipped"
-        fixed
-        app
-    >
-      <v-list>
-        <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-            :to="item.to"
-            router
-            exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <!-- <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn> -->
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn> -->
-    </v-app-bar>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/customer/neworder">
+      <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-laugh-wink"></i>
+      </div>
+      <div class="sidebar-brand-text mx-3">marketing shop</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - new order -->
+    <li class="nav-item {{#neworder}}active{{/neworder}}">
+      <a class="nav-link" href="/customer/neworder">
+        <i class="fas fa-fw fa-shopping-cart"></i>
+        <span>새로운 주문</span></a>
+    </li>
+
+    <!-- Nav Item - orders -->
+    <li class="nav-item {{#orders}}active{{/orders}}">
+      <a class="nav-link" href="/customer/orders">
+        <i class="fas fa-fw fa-list-ul"></i>
+        <span>주문 내역</span></a>
+    </li>
+
+    <!-- Nav Item - subscription -->
+    <li class="nav-item {{#subscriptions}}active{{/subscriptions}}">
+      <a class="nav-link" href="/customer/subscriptions">
+        <i class="fas fa-fw fa-reply-all"></i>
+        <span>자동화 내역</span></a>
+    </li>
+
+    <!-- Nav Item - deposit -->
+    <li class="nav-item {{#deposit}}active{{/deposit}}">
+      <a class="nav-link" href="/customer/deposit/1">
+        <i class="fas fa-fw fa-won-sign"></i>
+        <span>결제</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+      <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
 
 
-  </v-app>
+  </ul>
 </template>
 
 <script>
-import AlertShow from "@/components/AlertShow"
 
 export default {
   name: 'DefaultLayout',
@@ -62,13 +65,13 @@ export default {
       items: [
         {
           icon: 'mdi-laptop',
-          title: '가상머신',
-          to: '/vms',
+          title: '메인',
+          to: '/',
         },
         {
           icon: 'mdi-pirate',
-          title: '관리',
-          to: '/admin',
+          title: '할일',
+          to: '/todos',
         },
       ],
       miniVariant: false,
@@ -88,11 +91,11 @@ export default {
     change_title(){
       this.head_title = this.$route.name;
       switch(this.head_title){
-        case 'vms':
-          this.head_title="가상머신";
+        case '':
+          this.head_title="메인";
           break;
-        case 'admin':
-          this.head_title="관리";
+        case 'todos':
+          this.head_title="할일";
           break;
         default:
           this.head_title="";
@@ -102,9 +105,6 @@ export default {
 
   },
 
-  components:{
-    AlertShow,
-  },
 
 }
 </script>

@@ -1,23 +1,23 @@
 <template>
   <div class="container">
-  <h2>to-do</h2>
-  <form class="d-flex gap-2" @submit.prevent="addTodo">
-    <div class="flex-grow-1">
-      <input
-          class="form-control align-items-center"
-          type="text"
-          v-model="todo"
-          placeholder="type new to do"
-      >
-    </div>
-    <div>
-      <button class="btn btn-primary ml-2"
-              type="submit">
-        클릭
-      </button>
-    </div>
-  </form>
-  {{ todos }}
+    <h2>to-do</h2>
+    <form class="d-flex gap-2" @submit.prevent="addTodo">
+      <div class="flex-grow-1">
+        <input
+            class="form-control align-items-center"
+            type="text"
+            v-model="todo"
+            placeholder="type new to do"
+        >
+      </div>
+      <div>
+        <button class="btn btn-primary ml-2"
+                type="submit">
+          클릭
+        </button>
+      </div>
+    </form>
+    {{ todos }}
   </div>
 </template>
 
