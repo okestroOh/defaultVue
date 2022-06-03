@@ -22,12 +22,14 @@
 </template>
 
 <script>
-import {ref, reactive } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
   setup() {
-    const todo = ref("");
-    const todos = reactive([]);
+    const store = useStore();
+    const todo = computed(()=>store.state.todo);
+    const todos = computed(()=>store.state.todos);
 
     // const menu = reactive([
     //   {

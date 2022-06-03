@@ -15,11 +15,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 // import AlertShow from "@/components/AlertShow"
+// import { useStore } from 'vuex';
 
 
 export default {
   setup() {
-
+    // const store = useStore()
 
   },
 

@@ -13,28 +13,28 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - new order -->
-    <li class="nav-item {{#neworder}}active{{/neworder}}">
+    <li class="nav-item ">
       <a class="nav-link" href="/customer/neworder">
         <i class="fas fa-fw fa-shopping-cart"></i>
         <span>새로운 주문</span></a>
     </li>
 
     <!-- Nav Item - orders -->
-    <li class="nav-item {{#orders}}active{{/orders}}">
+    <li class="nav-item ">
       <a class="nav-link" href="/customer/orders">
         <i class="fas fa-fw fa-list-ul"></i>
         <span>주문 내역</span></a>
     </li>
 
     <!-- Nav Item - subscription -->
-    <li class="nav-item {{#subscriptions}}active{{/subscriptions}}">
+    <li class="nav-item ">
       <a class="nav-link" href="/customer/subscriptions">
         <i class="fas fa-fw fa-reply-all"></i>
         <span>자동화 내역</span></a>
     </li>
 
     <!-- Nav Item - deposit -->
-    <li class="nav-item {{#deposit}}active{{/deposit}}">
+    <li class="nav-item ">
       <a class="nav-link" href="/customer/deposit/1">
         <i class="fas fa-fw fa-won-sign"></i>
         <span>결제</span></a>
@@ -57,27 +57,28 @@
 export default {
   name: 'DefaultLayout',
 
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-laptop',
-          title: '메인',
-          to: '/',
-        },
-        {
-          icon: 'mdi-pirate',
-          title: '할일',
-          to: '/todos',
-        },
-      ],
-      miniVariant: false,
-      head_title: "",
-    }
+  setup(){
+  //   clipped : false;
+  //   drawer : false;
+  //   fixed : false;
+  //   items : [
+  //   {
+  //     icon: 'mdi-laptop',
+  //     title: '메인',
+  //     to: '/',
+  //   },
+  //   {
+  //     icon: 'mdi-pirate',
+  //     title: '할일',
+  //     to: '/todos',
+  //   },
+  // ];
+  //     miniVariant: false;
+  //     head_title: "";
+
+
   },
+
 
   computed: {
     title() {

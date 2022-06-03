@@ -1,4 +1,4 @@
-// import Vue from "vue";
+import {ref, reactive} from "vue";
 import {createStore} from "vuex";
 
 // Vue.use(Vuex);
@@ -11,15 +11,26 @@ const store = createStore({
             title:'',
             text: ''
         },
+
+        toto: ref(""),
+        todos : reactive([]),
     },
 
     mutations: {
         SET_ALERT(state, payload) {
-                state.alert = payload.alert;
-                state.alert_data.type = payload.type;
-                state.alert_data.title = payload.title;
-                state.alert_data.text = payload.text;
+            state.alert = payload.alert;
+            state.alert_data.type = payload.type;
+            state.alert_data.title = payload.title;
+            state.alert_data.text = payload.text;
         },
+
+        SET_TODO(state, payload) {
+            state.todo=payload;
+        },
+        SET_TODOS(state, payload) {
+            state.todos=payload;
+        },
+
     },
 
     getters: {
@@ -34,7 +45,7 @@ const store = createStore({
     actions: {
 
         updateAlert({commit}, params) {
-                commit('SET_ALERT', params);
+            commit('SET_ALERT', params);
         },
     }
 
